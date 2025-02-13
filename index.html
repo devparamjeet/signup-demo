@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div class="form-row">
+                <div class="form-column">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Enter Your Name..">
+
+                    <label for="fathername">Father's Name</label>
+                    <input type="text" id="fathername" placeholder="Enter Your Father's Name..">
+
+                    <label for="mothername">Mother's Name</label>
+                    <input type="text" id="mothername" placeholder="Enter Your Mother's Name..">
+
+                    <label for="dob">DOB</label>
+                    <input type="date" id="dob">
+                </div>
+                <div class="form-column">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="Your Address..">
+
+                    <label for="state">State</label>
+                    <select name="state" id="state" onchange="populateCities()">
+                        <option value="" selected>--Select State--</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and
+                            Diu</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Ladakh">Ladakh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    </select>
+
+
+                    <label for="city">City</label>
+                    <select name="city" id="city">
+                        <option value="" selected>--Select City--</option>
+                    </select>
+                </div>
+            </div>
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="Your Email..">
+
+            <label for="passPhoto">Upload Your Passport Size Photo</label>
+            <input type="file" name="passPhoto" id="passPhoto">
+
+            <label for="resume">Upload Your Resume</label>
+            <input type="file" name="resume" id="resume">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        function populateCities() {
+            var state = document.getElementById("state").value;
+            var citySelect = document.getElementById("city");
+            citySelect.innerHTML = '<option value="" selected>--Select City--</option>';
+
+            var citiesByState = {
+                "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Tirupati", "Guntur"],
+                "Arunachal Pradesh": ["Itanagar", "Tawang", "Ziro", "Pasighat"],
+                "Assam": ["Guwahati", "Dibrugarh", "Jorhat", "Silchar"],
+                "Bihar": ["Patna", "Gaya", "Muzaffarpur", "Bhagalpur"],
+                "Chhattisgarh": ["Raipur", "Bilaspur", "Durg", "Korba"],
+                "Goa": ["Panaji", "Margao", "Vasco da Gama", "Mapusa"],
+                "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot"],
+                "Haryana": ["Chandigarh", "Faridabad", "Gurgaon", "Panipat"],
+                "Himachal Pradesh": ["Shimla", "Manali", "Dharamshala", "Kullu"],
+                "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro"],
+                "Karnataka": ["Bengaluru", "Mysuru", "Hubli", "Mangalore"],
+                "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur"],
+                "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur"],
+                "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik"],
+                "Manipur": ["Imphal", "Thoubal", "Bishnupur", "Churachandpur"],
+                "Meghalaya": ["Shillong", "Tura", "Nongstoin", "Jowai"],
+                "Mizoram": ["Aizawl", "Lunglei", "Saiha", "Champhai"],
+                "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Tuensang"],
+                "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Puri"],
+                "Punjab": ["Amritsar", "Ludhiana", "Jalandhar", "Patiala"],
+                "Rajasthan": ["Jaipur", "Udaipur", "Jodhpur", "Kota"],
+                "Sikkim": ["Gangtok", "Namchi", "Gyalshing", "Mangan"],
+                "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli"],
+                "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar"],
+                "Tripura": ["Agartala", "Dharmanagar", "Kailashahar", "Udaipur"],
+                "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra"],
+                "Uttarakhand": ["Dehradun", "Haridwar", "Nainital", "Rudrapur"],
+                "West Bengal": ["Kolkata", "Siliguri", "Asansol", "Durgapur"],
+                "Andaman and Nicobar Islands": ["Port Blair", "Car Nicobar", "Hut Bay", "Rangat"],
+                "Chandigarh": ["Chandigarh"],
+                "Dadra and Nagar Haveli and Daman and Diu": ["Silvassa", "Daman", "Diu", "Amli"],
+                "Lakshadweep": ["Kavaratti", "Agatti", "Amini", "Minicoy"],
+                "Delhi": ["New Delhi", "Dwarka", "Saket", "Karol Bagh"],
+                "Puducherry": ["Puducherry", "Karaikal", "Mahe", "Yanam"],
+                "Ladakh": ["Leh", "Kargil", "Nubra", "Zanskar"],
+                "Jammu and Kashmir": ["Srinagar", "Jammu", "Anantnag", "Baramulla"]
+            };
+
+            if (state in citiesByState) {
+                citiesByState[state].forEach(function (city) {
+                    var option = document.createElement("option");
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        }
+
+
+        document.getElementById("signupForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById("name").value,
+                fathername: document.getElementById("fathername").value,
+                mothername: document.getElementById("mothername").value,
+                dob: document.getElementById("dob").value,
+                address: document.getElementById("address").value,
+                state: document.getElementById("state").value,
+                city: document.getElementById("city").value,
+                email: document.getElementById("email").value,
+            };
+
+            fetch("http://localhost:5000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => alert(data.message))
+                .catch(error => console.error("Error:", error));
+        });
+    </script>
+
+
+</body>
+
+</html>
